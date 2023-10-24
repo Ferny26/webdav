@@ -31,8 +31,8 @@ $files = '/var/www/webdav/'.$cliente.'/';
         </div>
         <div class="row">
             <?php
-            foreach ($files as $archivo) {   
-                echo "Archivo: : <strong> $archivo </strong></br>" ;
+            foreach (glob('/var/www/webdav/'.$cliente.'/') as $archivo) {   
+                echo "<a> Archivo: : <strong> $archivo </strong></br> </a>" ;
             }
             ?>
         </div>
