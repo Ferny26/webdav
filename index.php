@@ -5,7 +5,11 @@ $files = [];
 if(isset($_GET['cliente'])){
     $cliente = $_GET['cliente'];
 }
-$files = '/var/www/webdav/'.$cliente.'/';
+if($cliente){
+    $files = scandir($cliente);
+}else{
+    $files = scandir($_SERVER['DOCUMENT_ROOT']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +35,7 @@ $files = '/var/www/webdav/'.$cliente.'/';
         </div>
         <div class="row">
             <?php
-            foreach (glob('/var/www/webdav/'.$cliente.'/') as $archivo) {   
+            foreach ($files as $archivo) {   
                 echo "<a> Archivo: : <strong> $archivo </strong></br> </a>" ;
             }
             ?>
