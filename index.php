@@ -33,13 +33,22 @@ if($cliente){
                 <hr>
             </div>
         </div>
-        <div class="row">
+        <div class="table-responsive">
+        <table class="table dataTable">
+            <tr>
+                <th>Nombre</th>
+                <th>ver</th>
+            </tr>
+            <tbody>
             <?php
             foreach ($files as $archivo) {   
-                echo "<a> Archivo: : <strong> $archivo </strong></br> </a>" ;
-            }
-            ?>
-        </div>
+                $filePath = $path . '/' . $file;
+                ?>
+                <td>
+                <?php echo $archivo?>
+                </td>
+            </tbody>
+            </table>
     </div>
 </body>
 </html>
